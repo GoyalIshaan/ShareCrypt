@@ -6,7 +6,7 @@ import Input from './Components/Input';
 import Button from './Components/Button';
 import CryptoJS from 'crypto-js';
 
-const Home: React.FC = () => {
+const Create: React.FC = () => {
   const secretKey = 'your-secret-key'; // secret key for encoding
   const navigate = useNavigate();
   const { register, handleSubmit, setValue, watch } = useForm<FieldValues>();
@@ -30,17 +30,12 @@ const Home: React.FC = () => {
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     const { name, number, latitude, longitude, secret } = data;
-
-    //creating the key to be encrypted
     const key = `${encodeURIComponent(name)}&${encodeURIComponent(number)}&${encodeURIComponent(latitude)}&${encodeURIComponent(longitude)}&${encodeURIComponent(secret)}`;
-
-    //creating the encrypted key
     const ciphertext = CryptoJS.AES.encrypt(
       JSON.stringify({ key }),
       secretKey,
     ).toString();
     const encryptedData = encodeURIComponent(ciphertext);
-
     navigate(`/encrypt?key=${encryptedData}`);
   };
 
@@ -49,71 +44,45 @@ const Home: React.FC = () => {
       <div className="flex-grow flex flex-col md:flex-row p-6 gap-10">
         <div className="flex-1">
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-            <div>
-              <label className="block text-sm font-medium text-gray-700">
-                Enter Name:
-              </label>
+            <Input
+              name="name"
+              placeholder="Enter Any Name"
+              register={register}
+              disabled={loading}
+            />
+            <Input
+              name="number"
+              register={register}
+              placeholder="Enter Any Number"
+              type="number"
+              disabled={loading}
+            />
+            <div className="flex items-center gap-2">
               <Input
-                name="name"
-                placeholder="Enter Any Name"
-                type="text"
+                name="latitude"
                 register={register}
+                placeholder="Enter Latitude"
                 disabled={loading}
               />
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700">
-                Any Number:
-              </label>
               <Input
-                name="number"
+                name="longitude"
                 register={register}
-                placeholder="Enter Any Number"
-                type="number"
+                placeholder="Enter Longitude"
                 disabled={loading}
               />
+              <Button
+                onClick={getLocation}
+                tooltipText="Fills the geolocation with your current latitude and location"
+              >
+                Get Location
+              </Button>
             </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700">
-                GeoLocation:
-              </label>
-              <div className="flex gap-2">
-                <Input
-                  name="latitude"
-                  register={register}
-                  placeholder="Enter Latitude"
-                  type="text"
-                  disabled={loading}
-                />
-                <Input
-                  name="longitude"
-                  register={register}
-                  placeholder="Enter Longitude"
-                  type="text"
-                  disabled={loading}
-                />
-                <Button
-                  onClick={getLocation}
-                  tooltipText="Fills the geolocation with your current latitude and location"
-                >
-                  Get Location
-                </Button>
-              </div>
-              {loading && <p className="text-gray-500">Loading...</p>}
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-gray-700">
-                Secret Text:
-              </label>
-              <Input
-                name="secret"
-                register={register}
-                placeholder="Enter Secret Text"
-                type="text"
-                disabled={loading}
-              />
-            </div>
+            <Input
+              name="secret"
+              register={register}
+              placeholder="Enter Secret Text"
+              disabled={loading}
+            />
             <Button
               type="submit"
               tooltipText="Submits this form and navigates you to the encrypted page"
@@ -135,4 +104,4 @@ const Home: React.FC = () => {
   );
 };
 
-export default Home;
+export default Create;

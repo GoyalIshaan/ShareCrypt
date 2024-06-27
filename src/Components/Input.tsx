@@ -8,6 +8,7 @@ interface InputProps {
   type?: string;
   disabled?: boolean;
 }
+
 const Input: React.FC<InputProps> = ({
   name,
   register,
@@ -20,7 +21,7 @@ const Input: React.FC<InputProps> = ({
       {...register(name)}
       placeholder={placeholder}
       type={type}
-      className=" w-96 border border-slate-300 rounded-full h-10 px-5 mr-3 my-2"
+      className="w-full max-w-xs md:max-w-sm lg:w-96 border border-slate-300 rounded-full h-10 px-5 py-2 my-2"
       disabled={disabled}
     />
   );
