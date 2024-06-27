@@ -2,8 +2,6 @@
 
 # ShareCrypt
 
-![ShareCrypt Logo](path_to_your_logo_if_available)
-
 ShareCrypt is a modern web application designed to enhance the security and privacy of information sharing over the internet. By allowing users to encrypt their data directly into a URL's search query, ShareCrypt ensures that sensitive information can be shared securely and privately with just a single link. This method eliminates the need for complex encryption tools and simplifies the process of secure communication.
 
 ## Project Overview
