@@ -41,7 +41,7 @@ When the recipient receives the link and opens it, ShareCrypt decrypts the query
 - **API Integration**: Integrating the encryption and decryption processes seamlessly into the frontend posed initial challenges, particularly with asynchronous data handling.
 - **Performance Optimization**: Ensuring the application runs smoothly, particularly the map interactions and data encoding/decoding processes.
 - **Responsive Design**: Implementing a fully responsive design using Tailwind CSS while maintaining the functionality across all devices.
-- 
+  
 ## Contributing
 
 Contributions to ShareCrypt are always welcome, whether it be improvements to the documentation or new functionalities. Please feel free to fork the repository and submit a pull request with your changes.
