@@ -2,6 +2,8 @@
 
 # ShareCrypt
 
+![ShareCrypt Logo](path_to_your_logo_if_available)
+
 ShareCrypt is a modern web application designed to enhance the security and privacy of information sharing over the internet. By allowing users to encrypt their data directly into a URL's search query, ShareCrypt ensures that sensitive information can be shared securely and privately with just a single link. This method eliminates the need for complex encryption tools and simplifies the process of secure communication.
 
 ## Project Overview
@@ -14,6 +16,16 @@ ShareCrypt leverages a unique approach to data sharing where users input their i
 - **Easy Sharing**: Generates a link that can be easily shared with anyone.
 - **No Additional Software Required**: Decrypts information directly through the link without the need for external tools.
 
+## How Encryption Works
+
+ShareCrypt uses CryptoJS, a JavaScript library of crypto standards, to provide secure encryption and decryption functionality. When a user inputs data into ShareCrypt:
+
+1. **Data Encryption**: The input data is encrypted using CryptoJS's AES encryption method. AES (Advanced Encryption Standard) is a symmetric encryption algorithm that ensures data security and integrity.
+2. **URL Encoding**: The encrypted data is then encoded into a search query format. This encoding ensures that the data remains intact and unaltered during transmission through web URLs.
+3. **Link Generation**: A unique URL is generated which embeds the encrypted data within its query parameters.
+
+When the recipient receives the link and opens it, ShareCrypt decrypts the query parameters using the same AES decryption method to retrieve the original information securely.
+
 ## Technologies Used
 
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
@@ -24,13 +36,14 @@ ShareCrypt leverages a unique approach to data sharing where users input their i
 ![Phosphor Icons](https://img.shields.io/badge/Phosphor_Icons-000000?style=for-the-badge&logo=phosphor-icons&logoColor=white)
 ![Embla Carousel](https://img.shields.io/badge/Embla_Carousel-009688?style=for-the-badge)
 ![React Leaflet](https://img.shields.io/badge/React_Leaflet-199900?style=for-the-badge&logo=react-leaflet&logoColor=white)
+![CryptoJS](https://img.shields.io/badge/Crypto_JS-F7931A?style=for-the-badge&logo=crypto-js&logoColor=white)
 
 ## Challenges Faced
 
 - **API Integration**: Integrating the encryption and decryption processes seamlessly into the frontend posed initial challenges, particularly with asynchronous data handling.
 - **Performance Optimization**: Ensuring the application runs smoothly, particularly the map interactions and data encoding/decoding processes.
 - **Responsive Design**: Implementing a fully responsive design using Tailwind CSS while maintaining the functionality across all devices.
-
+- 
 ## Contributing
 
 Contributions to ShareCrypt are always welcome, whether it be improvements to the documentation or new functionalities. Please feel free to fork the repository and submit a pull request with your changes.
