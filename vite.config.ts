@@ -7,6 +7,7 @@ export default defineConfig({
   plugins: [
     react(),
     eslintPlugin({
+      overrideConfigFile: './.eslintrc.cjs',
       include: ['src/**/*.ts', 'src/**/*.tsx', 'src/**/*.js', 'src/**/*.jsx'],
       configFile: './.eslintrc.json', // Explicitly specify the path to the ESLint config
     }),
